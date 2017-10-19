@@ -19,7 +19,14 @@ body {
     transform: translateX(-50%) translateY(-50%);
 }
 .captcha {
-    width:160px !important;
+    width:120px !important;
+    float: right;
+    margin-top: 26px;
+    margin-right: 35px;
+}
+.input-captcha {
+    float: left;
+    width: 140px;
 }
 img {
     cursor: pointer;

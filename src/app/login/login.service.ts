@@ -10,7 +10,7 @@ export class LoginService {
     login(user : User ) {
         return this.httpUtilsService.request({  
             method: 'POST',
-            url: 'http://localhost:18080/webportal/api/login',
+            url: 'api/login',
             data: user,
             dataType: 'json',
             contentType:'application/json;charset=UTF-8'

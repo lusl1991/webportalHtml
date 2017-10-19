@@ -1,11 +1,11 @@
 <div id="particles-js"></div>
 <div class="page-container">
-  <form class="login-form mt-lg" (ngSubmit)="login()">
-    <h1>Login</h1>
+  <form #form="ngForm" class="login-form mt-lg" (ngSubmit)="login()" role="form">
+    <h1>{{'app.login' | translate}}</h1>
       <input type="text" class="form-control" id="account" name="account" [(ngModel)]="user.account" #spy #account="ngModel" placeholder="请输入登录账号">
       <input type="password" class="form-control" id="password" name="password" [(ngModel)]="user.password" #spy #password="ngModel" placeholder="请输入密码">
-      <input type="text" class="form-control" id="captcha" name="captcha" [(ngModel)]="user.captcha" #spy #captcha="ngModel" placeholder="请输入验证码">
-      <img src="http://localhost:18080/webportal/captcha/getCaptchaCode" class="captcha" (click)="refresh()">
-      <button type="submit" class="btn btn-info">登录</button>
+      <input type="text" class="input-captcha" id="captcha" name="captcha" [(ngModel)]="user.captcha" #spy #captcha="ngModel" placeholder="请输入验证码">
+      <img class="captcha" (click)="refresh()">
+      <button type="submit" class="btn btn-info">{{'app.login' | translate}}</button>
   </form>
 </div>

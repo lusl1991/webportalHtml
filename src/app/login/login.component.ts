@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { LoginService } from './login.service';
 import { User } from './user';
 import { ActivatedRoute, Router } from "@angular/router";
+import { environment } from '../../environments/environment';
 
 declare let $: any;
 
@@ -24,6 +25,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.user = new User('admin','123456');
+    this.refresh();
   }
 
   get userInfo() {
@@ -45,9 +47,9 @@ export class LoginComponent implements OnInit {
         });  
   }
 
-  refresh(obj) {
+  refresh() {
     //document.getElementsByClassName('captcha')[0].setAttribute( 'src', encodeURI("http://localhost:18080/webportal/captcha/getCaptchaCode?"+new Date()));
-    $(".captcha").attr('src',encodeURI("http://localhost:18080/webportal/captcha/getCaptchaCode?"+new Date()));//利用jquery方式
+    $(".captcha").attr('src',encodeURI( environment.apiBase + "captcha/getCaptchaCode?"+new Date()));//利用jquery方式
   }
 
 }

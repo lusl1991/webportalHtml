@@ -1,0 +1,14 @@
+{
+    "app": {
+        "welcome": "欢迎你",
+        "logout": "退出",
+        "login": "登录",
+        "register": "注册",
+        "userLogin":"用户登录"
+    },
+    "placeholder": {
+        "account": "请输入登录账号",
+        "password": "请输入登录密码",
+        "captcha": "请输入验证码"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "app":{
+        "welcome":"Welcome",
+        "logout":"Logout",
+        "login":"Login",
+        "register":"Register",
+        "userLogin":"User Login"
+    },
+    "placeholder": {
+        "account": "Please enter the account",
+        "password": "Please enter the password",
+        "captcha": "Please enter the captcha"
+    }
+}

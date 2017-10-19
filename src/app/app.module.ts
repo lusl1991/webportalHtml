@@ -10,6 +10,13 @@ import { HttpUtilsService } from '../utils/httputils.service';
 import { HomeComponent } from './home/home.component';
 import { AppComponent } from './app.component';
 
+import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate';
+
+export function createTranslateLoader(http: Http) {
+  return new TranslateStaticLoader(http, './assets/i18n', '.json');
+}
+
+
 @NgModule({
   declarations: [
     LoginComponent,
@@ -20,7 +27,13 @@ import { AppComponent } from './app.component';
     BrowserModule,
     AppRouter,
     HttpModule,
-    FormsModule
+    FormsModule,
+    TranslateModule.forRoot({
+      provide: TranslateLoader,
+      useFactory: (createTranslateLoader),
+      deps: [Http]
+    }),
+
   ],
   providers: [HttpUtilsService],
   bootstrap: [AppComponent]
