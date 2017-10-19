@@ -11,10 +11,25 @@ import {NgModule} from "@angular/core";
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 
+/**
+ * 导入路由守卫
+ */
+import { AuthGuard } from '../utils/authguard';
+
 const routes:Routes=[
-  { path: '', redirectTo:"/login", pathMatch: 'full'},
-  { path : 'login', component : LoginComponent},
-  { path : 'home', component : HomeComponent}
+  { 
+    path: '',
+    redirectTo:"/login",
+    pathMatch: 'full',
+  },
+  { 
+    path: 'login',
+    component: LoginComponent
+  },
+  { 
+    path: 'home',
+    component: HomeComponent,
+    canActivate: [AuthGuard]}
 ];
 
 @NgModule({

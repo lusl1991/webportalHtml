@@ -12,6 +12,8 @@ import { AppComponent } from './app.component';
 
 import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate';
 
+import { AuthGuard } from '../utils/authguard';
+
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
 }
@@ -35,7 +37,10 @@ export function createTranslateLoader(http: Http) {
     }),
 
   ],
-  providers: [HttpUtilsService],
+  providers: [
+    HttpUtilsService,
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
