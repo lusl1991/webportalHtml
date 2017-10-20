@@ -7,18 +7,18 @@ import { User } from '../app/login/user';
 
 @Injectable()
 export class CanActivateProvider implements CanActivate {
-    accout:string;
+      accout:string;
 
   	constructor(
-        private router: Router
+            private router: Router
   	) { }
   
   	canActivate(route: ActivatedRouteSnapshot,state: RouterStateSnapshot): boolean {
-        this.accout = route.paramMap.get("account");
+            this.accout = route.paramMap.get("account");
   		if(this.accout == null){
-            alert("用户尚未登录");
-            this.router.navigate(['login']);
-        }
-        return true;
+                  this.router.navigate(['login']);
+                  alert("用户尚未登录");
+            }
+            return true;
   	}
 }

@@ -12,6 +12,8 @@ import { HomeComponent } from './home/home.component';
 import { AppComponent } from './app.component';
 
 import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate';
+import { Ng2Echarts } from 'ng2-echarts';
+import { EchartUtils } from '../utils/EchartUtils';
 
 import { CanActivateProvider } from '../utils/canactivateprovider';
 import { CanLeaveProvider } from '../utils/canleaveprovider';
@@ -24,7 +26,8 @@ export function createTranslateLoader(http: Http) {
   declarations: [
     LoginComponent,
     HomeComponent,
-    AppComponent
+    AppComponent,
+    Ng2Echarts
 ],
   imports: [
     BrowserModule,
@@ -41,7 +44,8 @@ export function createTranslateLoader(http: Http) {
   providers: [
     HttpUtilsService,
     CanActivateProvider,
-    CanLeaveProvider
+    CanLeaveProvider,
+    EchartUtils
   ],
   bootstrap: [AppComponent]
 })
