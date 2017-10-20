@@ -7,19 +7,20 @@ import {RouterModule,Routes} from "@angular/router";
 /**
  * 导入NgModule装饰器
  */
-import {NgModule} from "@angular/core";
+import { NgModule } from "@angular/core";
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 
 /**
  * 导入路由守卫
  */
-import { AuthGuard } from '../utils/authguard';
+import { CanActivateProvider } from '../utils/canactivateprovider';
+import { CanLeaveProvider } from '../utils/canleaveprovider';
 
 const routes:Routes=[
   { 
     path: '',
-    redirectTo:"/login",
+    redirectTo:"login",
     pathMatch: 'full',
   },
   { 
@@ -29,7 +30,13 @@ const routes:Routes=[
   { 
     path: 'home',
     component: HomeComponent,
-    canActivate: [AuthGuard]}
+    canActivate: [CanActivateProvider]
+  },
+  { 
+    path: 'logout',
+    component: HomeComponent,
+    canDeactivate: [CanLeaveProvider]
+  }
 ];
 
 @NgModule({

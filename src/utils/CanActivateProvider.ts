@@ -1,12 +1,12 @@
 /**
- * 路由守卫
+ * 权限路由
  */
 import { Injectable } from '@angular/core';
 import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
 import { User } from '../app/login/user';
 
 @Injectable()
-export class AuthGuard implements CanActivate {
+export class CanActivateProvider implements CanActivate {
     accout:string;
 
   	constructor(
@@ -19,6 +19,6 @@ export class AuthGuard implements CanActivate {
             alert("用户尚未登录");
             this.router.navigate(['login']);
         }
-    	return true;
+        return true;
   	}
 }

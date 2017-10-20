@@ -28,6 +28,9 @@ export class LoginComponent implements OnInit {
     this.refresh();
   }
 
+  /**
+   * 获取已登录的用户信息
+   */
   get userInfo() {
     return JSON.stringify(this.user);
   }
@@ -47,8 +50,18 @@ export class LoginComponent implements OnInit {
         });  
   }
 
+  /**
+   * 获取图片验证码
+   */
   refresh() {
-    //document.getElementsByClassName('captcha')[0].setAttribute( 'src', encodeURI("http://localhost:18080/webportal/captcha/getCaptchaCode?"+new Date()));
+    /**
+     * 方法一：原生js对象
+     */
+    //document.getElementsByClassName('captcha')[0].setAttribute( 'src', encodeURI( environment.apiBase + "captcha/getCaptchaCode?"+new Date()));
+
+    /**
+     * 方法二：引入jquery插件
+     */
     $(".captcha").attr('src',encodeURI( environment.apiBase + "captcha/getCaptchaCode?"+new Date()));//利用jquery方式
   }
 

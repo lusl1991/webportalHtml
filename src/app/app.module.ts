@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NgZorroAntdModule } from 'ng-zorro-antd';
 
 import { AppRouter } from './app.router';
 import { LoginComponent } from './login/login.component';
@@ -12,12 +13,12 @@ import { AppComponent } from './app.component';
 
 import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate';
 
-import { AuthGuard } from '../utils/authguard';
+import { CanActivateProvider } from '../utils/canactivateprovider';
+import { CanLeaveProvider } from '../utils/canleaveprovider';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateStaticLoader(http, './assets/i18n', '.json');
 }
-
 
 @NgModule({
   declarations: [
@@ -35,12 +36,14 @@ export function createTranslateLoader(http: Http) {
       useFactory: (createTranslateLoader),
       deps: [Http]
     }),
-
+    NgZorroAntdModule.forRoot()
   ],
   providers: [
     HttpUtilsService,
-    AuthGuard
+    CanActivateProvider,
+    CanLeaveProvider
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
